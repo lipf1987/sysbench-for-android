@@ -21,6 +21,7 @@
 #ifdef HAVE_PTHREAD_H
 # include <pthread.h>
 #endif
+# include <pthread.h>
 
 typedef struct {
   unsigned long long  *values;

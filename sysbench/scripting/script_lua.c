@@ -24,7 +24,8 @@
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
-
+#include <stdlib.h>
+#include <string.h>
 #include "sb_script.h"
 
 #include "db_driver.h"

@@ -22,10 +22,8 @@
 
 #include "sb_script.h"
 
-#ifdef HAVE_LUA
 # include "script_lua.h"
-#endif
-
+# include <string.h>
 static sb_test_t test;
 
 /* Initialize interpreter with a given script name */

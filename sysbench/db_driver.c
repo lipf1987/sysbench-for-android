@@ -23,12 +23,10 @@
 #ifdef _WIN32
 #include "sb_win.h"
 #endif
-#ifdef STDC_HEADERS
 # include <ctype.h>
-#endif
-#ifdef HAVE_STRING_H
 # include <string.h>
-#endif
+# include <stdio.h>
+# include <stdlib.h>
 #ifdef HAVE_STRINGS_H
 # include <strings.h>
 #endif

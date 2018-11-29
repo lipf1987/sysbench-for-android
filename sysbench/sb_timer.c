@@ -20,13 +20,9 @@
 # include "config.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdlib.h>
-#endif
 
-#ifdef HAVE_STRING_H
 # include <string.h>
-#endif
 
 #include "sb_logger.h"
 #include "sb_timer.h"

@@ -22,18 +22,13 @@
 #include "sb_win.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdlib.h>
-#endif
-#ifdef HAVE_STRING_H
 # include <string.h>
-#endif
-#ifdef HAVE_MATH_H
 # include <math.h>
-#endif
 
 #include "sb_percentile.h"
 #include "sb_logger.h"
+#include <pthread.h>
 
 int sb_percentile_init(sb_percentile_t *percentile,
                        unsigned int size, double range_min, double range_max)

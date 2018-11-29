@@ -46,6 +46,7 @@
 #include "tests/sb_memory.h"
 #include "tests/sb_threads.h"
 #include "tests/sb_mutex.h"
+#include <pthread.h>
 
 /* Macros to control global execution mutex */
 #define SB_THREAD_MUTEX_LOCK() pthread_mutex_lock(&sb_globals.exec_mutex) 

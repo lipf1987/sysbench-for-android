@@ -24,12 +24,11 @@
 # include "sb_win.h"
 #endif
 
-#ifdef HAVE_PTHREAD_H
 # include <pthread.h>
-#endif
 
 #include "sysbench.h"
 
+#include <stdlib.h>
 /* How to test scheduler pthread_yield or sched_yield */
 #ifdef HAVE_PTHREAD_YIELD
 #define YIELD pthread_yield 

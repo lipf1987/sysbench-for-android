@@ -23,16 +23,12 @@
 # include "sb_win.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <ctype.h>
-#endif
 
-#ifdef HAVE_LIMITS_H
 # include <limits.h>
-#endif
 
 #include "sb_options.h"
 #include "sysbench.h"

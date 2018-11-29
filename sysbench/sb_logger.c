@@ -23,17 +23,12 @@
 #include "sb_win.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdio.h>
 # include <stdarg.h>
 # include <string.h>
-#endif
-#ifdef HAVE_ERRNO_H
 # include <errno.h>
-#endif
-#ifdef HAVE_MATH_H
 # include <math.h>
-#endif
+# include <stdlib.h>
 
 #include "sysbench.h"
 #include "sb_list.h"

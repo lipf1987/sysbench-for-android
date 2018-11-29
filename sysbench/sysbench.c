@@ -20,57 +20,34 @@
 # include "config.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdio.h>
 # include <stdlib.h>
-#endif
 
-#ifdef HAVE_STRING_H
 # include <string.h>
-#endif
 #ifdef HAVE_STRINGS_H
 # include <strings.h>
 #endif
 
-#ifdef HAVE_UNISTD_H 
 # include <unistd.h>
 # include <sys/types.h>
-#endif
-#ifdef HAVE_SYS_STAT_H
 # include <sys/stat.h>
-#endif
-#ifdef HAVE_ERRNO_H
 # include <errno.h>
-#endif
-#ifdef HAVE_FCNTL_H
 # include <fcntl.h>
-#endif
-#ifdef HAVE_PTHREAD_H
 # include <pthread.h>
-#endif
 #ifdef HAVE_THREAD_H
 # include <thread.h>
 #endif
-#ifdef HAVE_MATH_H
 # include <math.h>
-#endif
-#ifdef HAVE_SCHED_H
 # include <sched.h>
-#endif
-#ifdef HAVE_SIGNAL_H
 # include <signal.h>
-#endif
-#ifdef HAVE_LIMITS_H
 # include <limits.h>
-#endif
 
 #include "sysbench.h"
 #include "sb_options.h"
 #include "scripting/sb_script.h"
 #include "db_driver.h"
-
+#include "tests/sb_fileio.h"
 #define VERSION_STRING PACKAGE" "PACKAGE_VERSION
-
 /* Large prime number to generate unique random IDs */
 #define LARGE_PRIME 2147483647
 
@@ -264,7 +241,7 @@ static int register_tests(void)
 
 void print_header(void)
 {
-  log_text(LOG_NOTICE, VERSION_STRING
+  log_text(LOG_NOTICE,"sysbench" 
          ":  multi-threaded system evaluation benchmark\n");
 }
 
@@ -895,7 +872,7 @@ static int run_test(sb_test_t *test)
   /* Delay killing the reporting threads to avoid mutex lock leaks */
   if (report_thread_created)
   {
-    if (pthread_cancel(report_thread) || pthread_join(report_thread, NULL))
+    if (pthread_kill(report_thread, 0) || pthread_join(report_thread, NULL))
       log_errno(LOG_FATAL, "Terminating the reporting thread failed.");
   }
 
@@ -903,13 +880,13 @@ static int run_test(sb_test_t *test)
 
   if (eventgen_thread_created)
   {
-    if (pthread_cancel(eventgen_thread) || pthread_join(eventgen_thread, NULL))
+    if (pthread_kill(eventgen_thread, 0) || pthread_join(eventgen_thread, NULL))
       log_text(LOG_FATAL, "Terminating the event generator thread failed.");
   }
 
   if (checkpoints_thread_created)
   {
-    if (pthread_cancel(checkpoints_thread) ||
+    if (pthread_kill(checkpoints_thread, 0) ||
         pthread_join(checkpoints_thread, NULL))
       log_errno(LOG_FATAL, "Terminating the checkpoint thread failed.");
   }
@@ -1124,7 +1101,7 @@ int main(int argc, char *argv[])
 
   if (sb_globals.command == SB_COMMAND_VERSION || sb_get_value_flag("version"))
   {
-    printf("%s\n", VERSION_STRING);
+    printf("%s\n", "sysbench");
     exit(0);
   }
   

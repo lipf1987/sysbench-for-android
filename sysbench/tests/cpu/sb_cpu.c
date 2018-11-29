@@ -23,9 +23,7 @@
 # include "sb_win.h"
 #endif
 
-#ifdef HAVE_MATH_H
 # include <math.h>
-#endif
 
 #include "sysbench.h"
 

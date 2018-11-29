@@ -24,12 +24,11 @@
 # include "sb_win.h"
 #endif
 
-#ifdef HAVE_PTHREAD_H
 # include <pthread.h>
-#endif
 
 #include "sysbench.h"
 
+# include <stdlib.h>
 typedef struct
 {
   pthread_mutex_t mutex;

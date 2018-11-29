@@ -24,27 +24,16 @@
 #include "sb_win.h"
 #endif
 
-#ifdef STDC_HEADERS
 # include <stdio.h>
 # include <stdlib.h>
-#endif
 
-#ifdef HAVE_UNISTD_H 
 # include <unistd.h>
 # include <sys/types.h>
-#endif
-#ifdef HAVE_SYS_STAT_H
 # include <sys/stat.h>
-#endif
-#ifdef HAVE_FCNTL_H
 # include <fcntl.h>
-#endif
-#ifdef HAVE_ERRNO_H
 # include <errno.h>
-#endif
-#ifdef HAVE_LIBAIO
-# include <libaio.h>
-#endif
+# include <string.h>
+//# include <libaio.h>
 #ifdef HAVE_SYS_MMAN_H
 # include <sys/mman.h>
 #endif
